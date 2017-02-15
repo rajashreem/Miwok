@@ -30,12 +30,20 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         Word word = getItem(position);
 
-        TextView miwokTranslation = (TextView) listItemView.findViewById(R.id.miwok_text_view);
-        miwokTranslation.setText(word.getMiwokTranslation());
+        setMiwokTranslation(listItemView, word);
+        setDefaultTranslation(listItemView, word);
+        setImage(listItemView, word);
+        setBackgroundColor(listItemView);
 
-        TextView defaultTranslation = (TextView) listItemView.findViewById(R.id.default_text_view);
-        defaultTranslation.setText(word.getDefaultTranslation());
+        return listItemView;
+    }
 
+    private void setBackgroundColor(View listItemView) {
+        LinearLayout translations = (LinearLayout) listItemView.findViewById(R.id.translations);
+        translations.setBackgroundColor(ContextCompat.getColor(getContext(), backgroundColor));
+    }
+
+    private void setImage(View listItemView, Word word) {
         ImageView wordImage = (ImageView) listItemView.findViewById(R.id.word_image);
         if (word.hasImage()) {
             wordImage.setImageResource(word.getImageResourceId());
@@ -43,11 +51,15 @@ public class WordAdapter extends ArrayAdapter<Word> {
         } else {
             wordImage.setVisibility(View.GONE);
         }
+    }
 
-        LinearLayout translations = (LinearLayout) listItemView.findViewById(R.id.translations);
-        int color = ContextCompat.getColor(getContext(), backgroundColor);
-        translations.setBackgroundColor(color);
+    private void setDefaultTranslation(View listItemView, Word word) {
+        TextView defaultTranslation = (TextView) listItemView.findViewById(R.id.default_text_view);
+        defaultTranslation.setText(word.getDefaultTranslation());
+    }
 
-        return listItemView;
+    private void setMiwokTranslation(View listItemView, Word word) {
+        TextView miwokTranslation = (TextView) listItemView.findViewById(R.id.miwok_text_view);
+        miwokTranslation.setText(word.getMiwokTranslation());
     }
 }
