@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 
-public class WordAdapter extends ArrayAdapter<Word>{
+public class WordAdapter extends ArrayAdapter<Word> {
     private int backgroundColor;
 
     public WordAdapter(Context context, ArrayList<Word> words, int color) {
@@ -24,7 +24,7 @@ public class WordAdapter extends ArrayAdapter<Word>{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View listItemView = convertView;
-        if(listItemView == null){
+        if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
         }
 
@@ -37,7 +37,12 @@ public class WordAdapter extends ArrayAdapter<Word>{
         defaultTranslation.setText(word.getDefaultTranslation());
 
         ImageView wordImage = (ImageView) listItemView.findViewById(R.id.word_image);
-        wordImage.setImageResource(word.getImageResourceId());
+        if (word.hasImage()) {
+            wordImage.setImageResource(word.getImageResourceId());
+            wordImage.setVisibility(View.VISIBLE);
+        } else {
+            wordImage.setVisibility(View.GONE);
+        }
 
         LinearLayout translations = (LinearLayout) listItemView.findViewById(R.id.translations);
         int color = ContextCompat.getColor(getContext(), backgroundColor);
