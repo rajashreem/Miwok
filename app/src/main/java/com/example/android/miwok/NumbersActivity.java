@@ -10,6 +10,14 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
+    private MediaPlayer mediaPlayer;
+
+    MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            releaseMediaPlayer();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +44,21 @@ public class NumbersActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), numbersList.get(position).getPronunciation());
+                releaseMediaPlayer();
+
+                mediaPlayer = MediaPlayer.create(view.getContext(), numbersList.get(position).getPronunciation());
+
                 mediaPlayer.start();
+
+                mediaPlayer.setOnCompletionListener(onCompletionListener);
             }
         });
+    }
+
+    private void releaseMediaPlayer(){
+        if(mediaPlayer != null){
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 }
