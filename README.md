@@ -18,6 +18,7 @@ This sample uses the Gradle build system. To build this project, use the
 "gradlew build" command or use "Import Project" in Android Studio.
 
 Learning
+--------------
 - Importing an existing project
 - Adding labels for activities
 - On click listeners - onclick method
