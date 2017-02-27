@@ -17,31 +17,56 @@ Getting Started
 This sample uses the Gradle build system. To build this project, use the
 "gradlew build" command or use "Import Project" in Android Studio.
 
-Support
--------
-
-- Google+ Community: https://plus.google.com/communities/105153134372062985968
-- Stack Overflow: http://stackoverflow.com/questions/tagged/android
-
-Patches are encouraged, and may be submitted by forking this project and
-submitting a pull request through GitHub. Please see CONTRIBUTING.md for more details.
-
-License
--------
-
-Copyright 2016 The Android Open Source Project, Inc.
-
-Licensed to the Apache Software Foundation (ASF) under one or more contributor
-license agreements.  See the NOTICE file distributed with this work for
-additional information regarding copyright ownership.  The ASF licenses this
-file to you under the Apache License, Version 2.0 (the "License"); you may not
-use this file except in compliance with the License.  You may obtain a copy of
-the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
-License for the specific language governing permissions and limitations under
-the License.
+Learning
+- Importing an existing project
+- Adding labels for activities
+- On click listeners - onclick method
+- Starting one activity from other. Explicit intents
+- setting themes and colors of various activities
+- Arrays, Arraylist
+- Adding the child views to rootviews
+- Loops - for, while
+- Array Adapater and Adapter View (ListView, GridView)
+- Implementing custom array adapter
+- Infalting a view with layout inflator
+- Classes in Java
+- Adding images
+    - - various types of images - mdpi, hdpi, xhdpi
+    - - Using conditional logic to show or hide view
+    - - view visibility
+    - - Setting the color with ContextCompat
+- Adding Audio
+    - - Media player class
+    - - Starting and pausing audios
+    - - Adding audios. Raw folder
+    - - list view - onItemClickListener
+    - - releasing the media player object when the audio is finished.
+    - - releasing media player when activity is paused or dstroyed
+    - - activity lifecycle
+    - - Using OnCompletionListener for that.
+- Audio Focus
+    - - Audio manager
+    - - System services - audio manager
+    - - requesting audio focus from audio manager
+    - - setting audio focus change listener
+    - - handling the audio focus change cases
+    - - various values for streams, audio focus change
+- Touch feedback
+    - - selectable background
+    - - drawable selectors for list items
+- Adding the up buttons for child activities
+    - - Navigation patterns
+    - - setting up parent-child relationship among activities in android manifest file
+- Adding fragments and view pager
+    - - Fragment lifecycle
+    - - fragement concept
+    - - implementing sample fragment application - view pager and pager adapter
+    - - enclosing fragments inside activities
+    - - FragmentManager and fragment transactions
+    - - Remove activities and set view pager with various fragments
+- Adding tabs
+    - - Design support library dependency
+    - - TabLayout and setting that with View Pager
+    - - Setting titles for the tabs - overriding getTitle method of custom fragment adapter
+    - - Styling tabs with custom styles
+    - - removing the shadow of action bar
